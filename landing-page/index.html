@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CNN Brasil - Material UI Landing Page</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+    }
+
+    /* Header */
+    header {
+      background-color: rgb(20, 20, 116);
+      color: white;
+      padding: 16px 0;
+    }
+
+    .logo-img {
+      width: 40px;
+      margin-right: 8px;
+    }
+
+    .nav-link {
+      color: white;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-link:hover {
+      color: white;
+      background-color: rgb(35, 35, 121);
+      border-radius: 5px;
+    }
+
+    .nav-item {
+      margin-left: 16px;
+    }
+
+    /* Mobile Header Adjustments */
+    @media (max-width: 768px) {
+      .logo h1 {
+        font-size: 1.2rem;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 10px;
+      }
+
+      .nav-item {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+
+      .nav-link {
+        font-size: 1rem;
+      }
+
+      .nav-item:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    /* Banner */
+    .banner {
+      position: relative;
+      background-image: url('https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/11/BR_CNN_241124_WEB_MAGNOTTA_PERGUNTA_ZELENSKY.mp4_frame_4207-e1732478399469.jpeg?w=1220&h=674&crop=1&quality=85');
+      background-size: cover;
+      background-position: center;
+      padding: 200px;
+      color: white;
+      border-radius: 8px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .banner::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 8px;
+      z-index: 1;
+    }
+
+    .banner h2,
+    .banner p,
+    .banner a {
+      position: relative;
+      z-index: 2;
+    }
+
+    .btn-primary {
+      background-color: rgb(45, 45, 151);
+      color: white;
+      border-radius: 4px;
+      font-weight: 500;
+      padding: 12px 24px;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      color: white;
+      background-color: rgb(35, 35, 121);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      border: none;
+    }
+
+    /* Cards */
+    .card {
+      padding: 8px;
+      background-color: rgb(35, 35, 121);
+      color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h5 {
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .card-body {
+      padding: 20px;
+      padding-bottom: 20px;
+    }
+
+    .card-body-2 {
+      padding: 20px;
+      padding-bottom: 45px;
+    }
+
+    .img {
+      border-radius: 8px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: rgb(45, 45, 151);
+      color: white;
+      padding: 12px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Scroll to Top */
+    #scrollToTop {
+      width: 60px;
+      height: 60px;
+      display: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      background-color: rgb(45, 45, 151);
+      color: white;
+      border-radius: 50%;
+      font-size: 24px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      border: none;
+    }
+
+    #scrollToTop.visible {
+      display: flex;
+    }
+
+    #scrollToTop:hover {
+      transform: scale(1.1);
+    }
+
+    /* Responsiveness for Banner on Mobile */
+    @media (max-width: 768px) {
+      .banner {
+        padding: 120px 20px;
+        background-size: cover;
+      }
+
+      .banner h2 {
+        font-size: 1.5rem;
+      }
+
+      .banner p {
+        font-size: 1rem;
+      }
+    }
+
+    /* Responsiveness for Card Layout */
+    @media (max-width: 768px) {
+      .row.g-4 {
+        flex-direction: column;
+      }
+
+      .col-md-4 {
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="d-flex justify-content-between align-items-center container-fluid">
+    <div class="logo">
+      <div class="d-flex align-items-center">
+        <img src="./img/pngwing.com.png" alt="Logo" class="logo-img">
+        <h1 class="fs-4 m-0">DWEB BRASIL</h1>
+      </div>
+    </div>
+
+    <nav>
+      <ul class="nav d-flex align-items-center">
+        <li class="nav-item"><a href="#" class="nav-link">Ao vivo</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Política</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Economia</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Esportes</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Pop</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Viagem & Gastronomia</a></li>
+        <li class="nav-item"><a href="#" class="btn btn-outline-light btn-sm ms-4">Login</a></li>
+        <li class="nav-item"><a href="#" class="btn btn-outline-light btn-sm ms-2">Cadastre-se</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <main class="container my-4">
+    <!-- Banner principal -->
+    <section class="banner">
+      <h2>Zelensky diz que a posição de Lula em relação à guerra é fraca</h2>
+      <p>Ucrânia estuda destroços de novo míssil balístico russo.</p>
+      <a href="#" class="btn btn-primary">Saiba Mais</a>
+    </section>
+
+    <!-- Grid de notícias -->
+    <section class="row g-4 mt-4">
+      <h1>Mais Notícias </h1>
+      <div class="col-md-4">
+        <div class="card">
+          <img class="img" src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/11/garro-corinthians-vasco.jpg-e1732478041884.jpg?w=306&h=182&crop=1" class="card-img-top" alt="Notícia 1">
+          <div class="card-body-2">
+            <h5 class="card-title">Corinthians resolve cedo, bate o Vasco e chega à sexta vitória no Brasileirão</h5>
+            <p class="card-text">Inter goleia o Bragantino, que se complica na luta contra o rebaixamento.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img class="img" src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2024/11/img_2436-e1732311225751.jpg?w=306&h=182&crop=1" class="card-img-top" alt="Notícia 2">
+          <div class="card-body">
+            <h5 class="card-title">Data do próximo aniversário de Bolsonaro é determinante para ele não perder benefício</h5>
+            <p class="card-text">Bolsonaro indiciado: veja quem decretaria eventual prisão.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <img class="img" src="https://www.cnnbrasil.com.br/wp-content/uploads/sites/12/2022/09/palacio_planalto_01.jpg?w=306&h=182&crop=1" class="card-img-top" alt="Notícia 3">
+          <div class="card-body">
+            <h5 class="card-title">Governo deve enviar proposta para bloqueio de emendas com corte de gastos</h5>
+            <p class="card-text">Após negociações com a Fazenda, Câmara retoma a PEC das Igrejas.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <button id="scrollToTop" class="btn btn-danger rounded-circle">⬆</button>
+
+  <footer>
+    <p>&copy; 2024 DWEB Brasil. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
